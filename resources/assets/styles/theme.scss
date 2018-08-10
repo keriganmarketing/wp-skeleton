@@ -1,0 +1,787 @@
+// Full page Layout
+html {
+    height: 100%;
+    
+    // Button overrides
+    .btn {
+        text-transform: uppercase;
+        font-size: .9em;
+        font-weight: $font-weight-bold;
+        
+        &.btn-lg {
+            border-width: 2px;
+        }
+    }
+
+    * {
+        text-rendering: unset;
+    }
+}
+
+body {
+    height: 100%;
+    font-size: 14px;
+
+    #app {
+        height: auto !important;
+        min-height: 100%;
+        overflow-x: initial;
+
+        .site-wrapper {
+            display: flex;
+            flex-direction: column;
+            
+            main {
+                flex-grow: 1;
+
+                &.contact {
+                    background-color: $black;
+
+                    iframe {
+                        height: 100%;
+                        min-height: 350px;
+                        flex-grow: 1;
+
+                        @media (min-width: 1200px){
+                            min-height: 420px;
+                        }
+
+                        @media (min-width: 2200px){
+                            min-height: 500px;
+                        }
+
+                        @media (min-width: 2600px){
+                            min-height: 650px;
+                        }
+                    }
+                }
+            }
+            
+            &.full-height {
+                height: 100vh;
+            }
+        }
+
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #b4b4b4;
+        opacity: 1; 
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: #b4b4b4;
+        opacity: 1; 
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        color: #b4b4b4;
+        opacity: 1; 
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        color: #b4b4b4;
+        opacity: 1; 
+    }
+
+}
+
+.top {
+    height: 108px;
+    background-color: #f9feff;
+    position: relative;
+    z-index: 6;
+
+    @media (min-width: 576px) {
+        height: 122px;
+    }
+
+    a.logo {
+        display: block;
+        width: 211px;
+        margin: -41px auto 0;
+        text-align: center;
+
+        @media (min-width: 576px) {
+            margin: -33px auto 0;
+        }
+
+        img {
+            position: absolute;
+            z-index: 300;
+            margin-left: -105px;
+            width: 140px;
+
+            @media (min-width: 576px) {
+                width: 211px;
+            }
+        }
+
+        @media (min-width: 576px) {
+            &::after {
+                content: " ";
+                width: 421px;
+                height: 135px;
+                background: url('/themes/wordplate/assets/images/logo-snipe.png') center no-repeat;
+                position: absolute;
+                z-index: 299;
+                margin: 38px 0 0 -210px;
+            }
+        }
+    }
+
+    .btn {
+        position: absolute;
+        top: 33px;
+        right: 15px;
+        z-index: 301;
+        font-weight: $font-weight-bolder;
+        letter-spacing: 2px;
+        font-size: 20px;
+
+        @media (min-width: 576px) {
+            top: 15px;
+        }
+    }
+
+    .mobile-menu {
+        display: block;
+        width: 100%;
+        padding: 2rem 0;
+        position: absolute;
+        z-index: 200;
+        background-color: $primary;
+        padding: 2rem;
+        color: #FFF;
+        left:0;
+        top: 108px;
+        margin-top: 0;
+
+        @media (min-width: 576px) {
+            top: 122px;
+        }
+
+        ul.navbar-nav li a {
+            text-align: right;
+            font-size: 1.2em;
+            color: #FFF;
+        }
+    }
+
+    .navbar-expand-xl {
+        height: 100%;
+
+        .main-navigation {
+            a.nav-link {
+                color: #848484;
+                padding: 2.75rem .75rem;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+            .dropdown-menu {
+                border: 0;
+                border-top: .5rem solid $secondary;
+                margin-top: -1px;
+                border-radius: 0;
+                padding: 0;
+                background-color: $dark;
+                width: 230px;
+
+                a.dropdown-item {
+                    color: #FFF;
+                    background-color: transparent;
+                    padding: 1rem;
+
+                    &:hover {
+                        color: $primary;
+                        background-color: $dark !important;
+                    }
+                }
+            }
+        }
+    }
+}
+  
+// Navigation
+ul.navbar-nav {
+    list-style: none;
+    display: flex;
+
+    li {
+        a {
+            padding: .5rem;
+            color: #848484;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+
+            &:hover {
+                color: #b73838;
+            }
+        }
+    }
+}
+
+// Body Content
+main {
+    position: relative;
+    z-index: 5;
+    background: transparent;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    
+
+    @media (min-width: 992px){
+        box-shadow: none;
+    }
+
+    article {
+        padding: 2rem 1rem 0;
+        text-align: left;
+        background-color: #FFF;
+
+        @media (min-width: 576px){
+            text-align: justify;
+        }
+
+        header {
+            margin-bottom: 1rem;
+        }
+
+        .fittext span, h1 {
+            color: $primary;
+            text-transform: uppercase;
+            font-weight: $font-weight-bolder;
+            letter-spacing: 2px;
+        }
+
+        p, ul, ol {
+            line-height: 1.8em;
+        }
+
+        h2 {
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: $secondary;
+            font-weight: 400;
+            text-transform: capitalize;
+            
+            &::after {
+                content: none;
+                background-color: $secondary;
+            }
+        }
+
+        &.front {
+            padding-bottom: 1.5rem;
+
+            @media (min-width: 992px){
+                position: absolute;
+                box-shadow: 0 0 10px rgba(0,0,0,.5);
+                margin-top: -71px;
+                padding: 2rem 3.8rem 2.5rem 4rem;
+            }
+
+            @media (min-width: 992px){
+                &::before {
+                    content: " ";
+                    display: block;
+                    background: url('/themes/wordplate/assets/images/white-angle.png') no-repeat;
+                    background-size: 100% 100%;
+                    width: 100%;
+                    height: 53px;
+                    position: absolute;
+                    left: 0;
+                    margin-top: -85px;
+                    z-index: 2;
+                }
+            }
+
+            p {
+                padding-right: .4rem;
+            }
+        }
+
+        &.support {
+            padding-top: 3rem;
+            padding-bottom: 1.5rem;
+        }
+    }
+}
+
+// Home page Map section 
+.map-section {
+    position: relative;
+    z-index: 1;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b73838+0,b73838+11,a43535+100 */
+    background: #b73838; /* Old browsers */
+    background: -moz-linear-gradient(top,  #b73838 0%, #b73838 20%, #a43535 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #b73838 0%,#b73838 20%,#a43535 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #b73838 0%,#b73838 20%,#a43535 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b73838', endColorstr='#a43535',GradientType=0 ); /* IE6-9 */
+
+    @media (min-width: 992px){
+        margin-top:-1px;
+
+        &::before {
+            content: " ";
+            display: block;
+            background: url('/themes/wordplate/assets/images/red-angle.png') no-repeat;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 57px;
+            position: absolute;
+            left: 0;
+            margin-top: -57px;
+            z-index: 1;
+        }
+    }
+
+    .builder-info {
+        padding: 2rem 0;
+
+        @media (min-width: 1000px){
+            padding: 4rem 0 4rem 4rem;
+        }
+
+        @media (min-width: 1200px){
+            padding: 4rem 0 4rem 7rem;
+        }
+
+        div {
+            padding: 0 1rem;
+
+            img {
+                max-width: 100%;
+            }
+
+            @media (min-width: 380px){
+                &.home-builder img {
+                    max-width: 121px;
+                }
+                &.projects-complete img {
+                    max-width: 200px;
+                }
+            }
+
+            @media (min-width: 1000px){
+                padding: 0 2rem;
+            }
+        }
+    }
+
+    .map-spacer {
+        height: 190px;
+
+        @media (min-width: 500px){
+            height: 250px;
+        }
+
+        @media (min-width: 768px){
+            height: 316px;
+        }
+
+        @media (min-width: 992px){
+            height: 377px;
+        }
+
+        @media (min-width: 1000px){
+            height: 316px;
+        }
+    }
+
+    .forgotten-coast-map {
+        background: url('/themes/wordplate/assets/images/building-sites-mexico-beach-to-st-george-island.png') bottom left no-repeat;
+        background-size: 532px auto;
+        background-position-x: -15px;
+
+        @media (min-width: 500px){
+            background-size: 100% auto;
+        }
+
+        @media (min-width: 768px){
+            background-size: auto 100%;
+        }
+
+        @media (min-width: 992px){
+            background-position-x: center;
+        }
+
+        @media (min-width: 1000px){
+            background-size: auto 439px;
+            background-position-x: 0;
+        }
+
+        @media (min-width: 1200px){
+            background-size: auto 439px;
+            background-position-x: 42px;
+        }
+    }
+}
+
+// Support Content
+.header-image {
+    background-size: cover;
+    background-position: center;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;
+
+    &.home {
+        align-items: center;
+    }
+
+    @media (min-width: 768px){
+        min-height: 200px;
+    }
+
+    @media (min-width: 992px){
+        min-height: 235px;
+    }
+
+    h1, h2 {
+        display: inline-block;
+        padding: .75rem 1rem;
+        border: 1px solid #FFF;
+        height: 60px;
+        margin: 0;
+        line-height: 1em;
+        font-size: 2.3em;
+        text-shadow: 0 0 15px rgba(0,0,0,.4);
+        box-shadow: 0 0 15px rgba(0,0,0,.2);
+        letter-spacing: 1px;
+    }
+
+    &.support {
+        padding: 3rem 1rem;
+        background-color: $dark;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+
+        &::before {
+            content: " ";
+            position: absolute;
+            display: block;
+            background-color: rgba(0,0,0,.5);
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        
+        .container {
+            display: flex;
+            height:100%;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+            z-index: 2;
+        }
+    }
+}
+
+// Main Slider
+.slider-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    z-index: 0;
+
+    @media (min-width: 576px){
+        height: 350px;
+    }
+
+    @media (min-width: 768px){
+        height: 450px;
+    }
+
+    @media (min-width: 992px){
+        height: 650px;
+    }
+}
+
+// Portfolio
+.portfolio-gallery {
+    padding: 2rem 1rem;
+
+    .portfolio-filters {
+        padding: .5rem 0 1.5rem;
+
+        .col-auto {
+            padding: .5rem;
+        }
+    }
+    
+    .project-tile {
+        margin: .5rem 0;
+    }
+
+    .project-button {
+        margin-top: -2rem;
+        position: relative;
+        margin-bottom: 2rem;
+
+        .btn {
+            background-color: #FFF;
+        }
+    }
+}
+
+.projects-section {
+    .header-image {
+        min-height: 160px;
+
+        @media (min-width: 768px){
+            min-height: 200px;
+        }
+    
+        @media (min-width: 992px){
+            min-height: 300px;
+        }
+
+        @media (min-width: 1200px){
+            min-height: 400px;
+        }
+
+        h1, h2 {
+            font-size: 2em;
+            letter-spacing: 2px;
+            padding: 1rem 2rem;
+            height: 68px;
+            border-width: 3px;
+            text-align: center;
+
+            @media (min-width: 576px){
+                font-size: 3.25em;
+                letter-spacing: 2px;
+                padding: 1.75rem 3rem;
+                height: 110px;
+                border-width: 4px;
+            }
+        }
+    }
+}
+
+.section-button {
+    padding: 0 1rem 3rem;
+    @media (min-width: 576px){
+        padding: 0 1rem 4rem;
+    }
+    @media (min-width: 768px){
+        padding: 1rem 1rem 5rem;
+    }
+}
+
+// Testimonial Section
+.testimonial-section {
+    background-image: url('/themes/wordplate/assets/images/pavers.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: $dark;
+    padding: 1rem 1rem 0;
+    color: #FFF;
+}
+
+// Feature Box Section
+.feature-box-section {
+    @media (min-width: 576px){
+        padding: 2rem 1rem;
+    }
+
+    .feature-box {
+        padding: 2rem;
+
+        @media (min-width: 768px){
+            padding: 3rem;
+        }
+
+        &.feat-one {
+            background-color: $primary;
+        }
+
+        &.feat-two {
+            background-color: $secondary;
+        }
+
+        h2, h3 {
+            margin-bottom: 1rem;
+
+            @media (min-width: 768px){
+                margin-bottom: 2rem;
+                font-size: 2em;
+            }
+            @media (min-width: 992px){
+                font-size: 2.4em;
+            }
+        }
+
+        p {
+            margin-bottom: 1rem;
+
+            @media (min-width: 768px){
+                margin-bottom: 2rem;
+            }
+
+        }
+    }
+
+    .box-container {
+        padding: 0;
+        @media (min-width: 576px){
+            padding: 1rem 2rem;
+        }
+        @media (min-width: 768px){
+            padding: 3rem 2rem;
+        }
+    }
+}
+
+article h2,
+.short-underline {
+    text-transform: uppercase;
+
+    &::after {
+        content: " ";
+        display: block;
+        width:24px;
+        height: 3px;
+        background-color: #FFF;
+        margin: 5px 0;
+    }
+}
+
+// Team
+.team-grid {
+    padding: 0;
+    
+    .team-member {
+        margin: .5rem 0;
+    }
+
+    .member-button {
+        margin-top: -2rem;
+        position: relative;
+        margin-bottom: 2rem;
+
+        .btn {
+            background-color: #FFF;
+        }
+    }
+}
+
+// Testimonials
+.testimonials {
+    .testimonial {
+        padding-top: 2.75rem;
+
+        &.list {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid $light;
+        }
+
+        &:last-child {
+            border: none;
+        }
+
+        &.single .author,
+        .testimonial-date {
+            color: $light;
+            text-transform: uppercase;
+        }
+
+        &.single {
+            padding-top: 3.5rem;
+
+            p {
+                font-weight: 600;
+                line-height: 1.8em;
+            }
+            .author {
+                padding: 1.5rem 0 1rem;
+                font-size: .9em;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+// Footer
+footer {
+    color: #FFF;
+
+    a {
+        color: #FFF;
+
+        &:hover {
+            text-decoration: underline;
+            color: #FFF;
+        }
+    }
+
+    h4 {
+        margin: 1rem 0 0;
+        padding: 1rem 0;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    .footer-menu {
+        margin: 0;
+        padding: 1rem 0;
+
+        .nav-item {
+            list-style: none;
+            margin: 1.25rem 0;
+
+            a {
+                font-weight: 600;
+                font-size: 14px;
+                padding: 10px 0;
+                text-transform: uppercase;
+                display: inline-block;
+                border-bottom: 1px solid transparent;
+                transition: border-color .5s linear; 
+
+                &:hover {
+                    color: #FFF;
+                    border-color: rgba(255,255,255,.5);
+                }
+            }
+        }
+    }
+
+    .footer-content {
+        padding: 1rem;
+    }
+
+    .social-icons {
+        margin: 0 -.25rem;
+        
+        svg {
+
+            path: {
+                fill: transparent !important;
+                stroke: #FFF !important;
+                stroke-width: 2px;
+            }
+        }
+    }
+    .copyright {
+        color: #FFF;
+        font-size: 12px;
+        margin: 0;
+        line-height: 1.5rem;
+    }
+
+    hr {
+        border-color: #555;
+    }
+
+    .siteby {
+        display: inline-block;
+        padding: 0 1rem;
+    }
+}

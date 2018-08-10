@@ -5,22 +5,27 @@ class ContactInfo
 {
     public function addField(array $field)
     {
-        acf_add_local_field($field);
+        if ( function_exists( 'acf_add_local_field_group' ) ) {
+            acf_add_local_field($field);
+        }
 
         return $this;
     }
     public function use()
     {
-        if (function_exists('acf_add_options_page')) {
-            acf_add_options_page(array(
-                'page_title' => 'Contact Info',
-                'menu_title' => 'Contact Info',
-                'menu_slug' => 'contact-info',
-                'capability' => 'edit_posts',
-                'icon_url' => 'dashicons-info',
-                'redirect' => false
-            ));
+        if (!function_exists('acf_add_options_page')) {
+            return;
         }
+
+        acf_add_options_page(array(
+            'page_title' => 'Contact Info',
+            'menu_title' => 'Contact Info',
+            'menu_slug' => 'contact-info',
+            'capability' => 'edit_posts',
+            'icon_url' => 'dashicons-info',
+            'redirect' => false
+        ));
+        
         acf_add_local_field_group(array(
             'key' => 'group_contact_info',
             'title' => 'Contact info',
@@ -41,7 +46,7 @@ class ContactInfo
             'hide_on_screen' => '',
         ));
 
-// title
+        // title
         acf_add_local_field(array(
             'key' => 'address',
             'label' => 'Address',
@@ -49,7 +54,7 @@ class ContactInfo
             'type' => 'textarea',
             'parent' => 'group_contact_info',
         ));
-// email
+        // email
         acf_add_local_field(array(
             'key' => 'email',
             'label' => 'Email',

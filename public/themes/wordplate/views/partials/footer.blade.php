@@ -20,7 +20,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 text-md-right">
                 <div class="footer-content">
-                    <main-menu :main-nav="{{ website_menu(14) }}" class="footer-menu" ></main-menu>
+                    <main-menu :main-nav="{{ website_menu('footer-navigation') }}" class="footer-menu" ></main-menu>
                 </div>
             </div>
             

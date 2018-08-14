@@ -66,7 +66,6 @@
         },
 
         mounted () {
-            
             setInterval(() => { if(this.paused === false){ this.nextSlide() } }, 6000);
         },
 

@@ -1,9 +1,6 @@
 <header class="top">
     <div role="navigation" class="navbar navbar-expand-xl" >
         <div class="container d-flex justify-content-between">
-            <div class="main-navigation collapse navbar-collapse flex-grow-0">
-                <main-menu :main-nav="{{ website_menu(3) }}" class="navbar-nav mr-auto"></main-menu>
-            </div>
             <div class="text-center flex-xl-grow-1" >
                 <a class="logo" href="/">
                     <img src="/themes/wordplate/assets/images/bigfish-logo.png" alt="Big Fish Construction" >

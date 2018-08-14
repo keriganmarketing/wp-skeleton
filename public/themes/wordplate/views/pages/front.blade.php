@@ -12,8 +12,8 @@
                 <div class="row no-gutters">
                     <div class="col-lg-7">
                         <article class="front">
-                            <header class="fittext">
-                                <fit-text :max="3.05">Your Beach Dream</fit-text>
+                            <header>
+                                <h1>Your Beach Dream</h1>
                             </header>
                             
                             {{ the_content() }}
@@ -22,41 +22,11 @@
 
                         </article>
                     </div>
-                    <div class="col">
-                    </div>
                 </div>
 
             </div>
         </main>
-        @include('partials.map')
-        <div class="projects-section">
-            <div class="projects-header header-image home" style="background-image: url('{{ $projectsHeader['url'] }}')">
-                <h2 class="text-center text-uppercase text-white text-outlined">Projects</h2>
-            </div>
-            <div class="container">
-                <portfolio-gallery :limit="6" :locations="{{ $locations }}" type="" location="" ></portfolio-gallery>
-                <div class="section-button text-center">
-                    <a class="btn btn-lg btn-outline-primary" href="/project-portfolio/">Project Portfolio &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-section text-center">
 
-            @foreach($featuredTestimonial as $testimonial)
-                <div class="container">
-                    <div class="testimonials text-center">
-                        <div class="testimonial single">
-                            <p class="shorttext">{!! $testimonial->truncate !!}</p>
-                            <p class="author">{{ $testimonial->byline }}</p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-            <div class="section-button text-center">
-                <a class="btn btn-lg btn-outline-white" href="/testimonials/">More Testimonials &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-            </div>
-        </div>
         <div class="feature-box-section">
             <div class="container">
                 <div class="row">

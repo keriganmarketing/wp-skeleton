@@ -64,23 +64,6 @@ body {
 
     }
 
-    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-        color: #b4b4b4;
-        opacity: 1; 
-    }
-    ::-moz-placeholder { /* Firefox 19+ */
-        color: #b4b4b4;
-        opacity: 1; 
-    }
-    :-ms-input-placeholder { /* IE 10+ */
-        color: #b4b4b4;
-        opacity: 1; 
-    }
-    :-moz-placeholder { /* Firefox 18- */
-        color: #b4b4b4;
-        opacity: 1; 
-    }
-
 }
 
 .top {
@@ -88,44 +71,6 @@ body {
     background-color: #f9feff;
     position: relative;
     z-index: 6;
-
-    @media (min-width: 576px) {
-        height: 122px;
-    }
-
-    a.logo {
-        display: block;
-        width: 211px;
-        margin: -41px auto 0;
-        text-align: center;
-
-        @media (min-width: 576px) {
-            margin: -33px auto 0;
-        }
-
-        img {
-            position: absolute;
-            z-index: 300;
-            margin-left: -105px;
-            width: 140px;
-
-            @media (min-width: 576px) {
-                width: 211px;
-            }
-        }
-
-        @media (min-width: 576px) {
-            &::after {
-                content: " ";
-                width: 421px;
-                height: 135px;
-                background: url('/themes/wordplate/assets/images/logo-snipe.png') center no-repeat;
-                position: absolute;
-                z-index: 299;
-                margin: 38px 0 0 -210px;
-            }
-        }
-    }
 
     .btn {
         position: absolute;
@@ -270,153 +215,9 @@ main {
                 background-color: $secondary;
             }
         }
-
-        &.front {
-            padding-bottom: 1.5rem;
-
-            @media (min-width: 992px){
-                position: absolute;
-                box-shadow: 0 0 10px rgba(0,0,0,.5);
-                margin-top: -71px;
-                padding: 2rem 3.8rem 2.5rem 4rem;
-            }
-
-            @media (min-width: 992px){
-                &::before {
-                    content: " ";
-                    display: block;
-                    background: url('/themes/wordplate/assets/images/white-angle.png') no-repeat;
-                    background-size: 100% 100%;
-                    width: 100%;
-                    height: 53px;
-                    position: absolute;
-                    left: 0;
-                    margin-top: -85px;
-                    z-index: 2;
-                }
-            }
-
-            p {
-                padding-right: .4rem;
-            }
-        }
-
-        &.support {
-            padding-top: 3rem;
-            padding-bottom: 1.5rem;
-        }
     }
 }
 
-// Home page Map section 
-.map-section {
-    position: relative;
-    z-index: 1;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b73838+0,b73838+11,a43535+100 */
-    background: #b73838; /* Old browsers */
-    background: -moz-linear-gradient(top,  #b73838 0%, #b73838 20%, #a43535 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #b73838 0%,#b73838 20%,#a43535 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #b73838 0%,#b73838 20%,#a43535 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b73838', endColorstr='#a43535',GradientType=0 ); /* IE6-9 */
-
-    @media (min-width: 992px){
-        margin-top:-1px;
-
-        &::before {
-            content: " ";
-            display: block;
-            background: url('/themes/wordplate/assets/images/red-angle.png') no-repeat;
-            background-size: 100% 100%;
-            width: 100%;
-            height: 57px;
-            position: absolute;
-            left: 0;
-            margin-top: -57px;
-            z-index: 1;
-        }
-    }
-
-    .builder-info {
-        padding: 2rem 0;
-
-        @media (min-width: 1000px){
-            padding: 4rem 0 4rem 4rem;
-        }
-
-        @media (min-width: 1200px){
-            padding: 4rem 0 4rem 7rem;
-        }
-
-        div {
-            padding: 0 1rem;
-
-            img {
-                max-width: 100%;
-            }
-
-            @media (min-width: 380px){
-                &.home-builder img {
-                    max-width: 121px;
-                }
-                &.projects-complete img {
-                    max-width: 200px;
-                }
-            }
-
-            @media (min-width: 1000px){
-                padding: 0 2rem;
-            }
-        }
-    }
-
-    .map-spacer {
-        height: 190px;
-
-        @media (min-width: 500px){
-            height: 250px;
-        }
-
-        @media (min-width: 768px){
-            height: 316px;
-        }
-
-        @media (min-width: 992px){
-            height: 377px;
-        }
-
-        @media (min-width: 1000px){
-            height: 316px;
-        }
-    }
-
-    .forgotten-coast-map {
-        background: url('/themes/wordplate/assets/images/building-sites-mexico-beach-to-st-george-island.png') bottom left no-repeat;
-        background-size: 532px auto;
-        background-position-x: -15px;
-
-        @media (min-width: 500px){
-            background-size: 100% auto;
-        }
-
-        @media (min-width: 768px){
-            background-size: auto 100%;
-        }
-
-        @media (min-width: 992px){
-            background-position-x: center;
-        }
-
-        @media (min-width: 1000px){
-            background-size: auto 439px;
-            background-position-x: 0;
-        }
-
-        @media (min-width: 1200px){
-            background-size: auto 439px;
-            background-position-x: 42px;
-        }
-    }
-}
 
 // Support Content
 .header-image {

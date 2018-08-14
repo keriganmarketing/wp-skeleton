@@ -27,7 +27,6 @@
         </div>
     </div>
     <hr>
-    <p class="copyright text-center">State Certified Building Contractor – {{ get_field('license_number', 'option') }}</p>
     <p class="copyright text-center">&copy;{{ date('Y') }} {{ get_bloginfo() }}. All Rights&nbsp;Reserved. 
         <a style="text-decoration:underline;" href="/privacy-policy" >Privacy&nbsp;Policy</a> 
         <span class="siteby">

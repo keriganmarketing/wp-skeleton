@@ -13,12 +13,10 @@
                     <div class="col-lg-7">
                         <article class="front">
                             <header>
-                                <h1>Your Beach Dream</h1>
+                                <h1>{{ the_title() }}</h1>
                             </header>
                             
                             {{ the_content() }}
-
-                            <a href="/about-us/" class="btn btn-lg btn-outline-primary mt-3" >Meet Our Team &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
                         </article>
                     </div>

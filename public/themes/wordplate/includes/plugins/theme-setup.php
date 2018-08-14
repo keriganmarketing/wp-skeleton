@@ -5,20 +5,39 @@
  * 
  */
 
- // Set theme defaults.
-add_action('after_setup_theme', function () {
-    // Register default menu locations.
+if(is_admin()){
+    add_action('after_setup_theme', 'create_default_pages'); // Install default pages
+    add_action('after_setup_theme', 'create_default_nav_locations'); // Install default nav locations
+    add_action('after_setup_theme', 'create_default_menus'); // Install default navs
+}
+
+function create_default_nav_locations() {
     register_nav_menus([
         'main-navigation'   => __('Top Navigation', 'wordplate'),
         'mobile-navigation' => __('Mobile Navigation', 'wordplate'),
         'footer-navigation' => __('Footer Navigation', 'wordplate'),
     ]);
-});
+}
 
-// Install default pages
+function create_default_pages(){
+    $homePage = get_page_by_path('home');
 
-// Install default navs
-add_action('load-nav-menus.php', 'create_default_menus');
+    if(!$homePage){
+        wp_insert_post([
+            'post_type' => 'page',
+            'post_title' => 'Home',
+            'post_content' => 'This is the home page.',
+            'post_status' => 'publish',
+            'post_slug' => 'home'
+        ]);
+
+        $homePage = get_page_by_path('home');
+    }
+
+    update_option( 'page_on_front', $homePage->ID );
+	update_option( 'show_on_front', 'page' );
+}
+
 function create_default_menus(){
 
     // Get Menu Locations
@@ -91,7 +110,7 @@ function add_page_to_menu($menu, $name, $link){
         'menu-item-title' =>  __($name),
         'menu-item-classes' => '',
         'menu-item-url' => $link,
-        'menu-item-type' => 'page',
+        'menu-item-type' => 'custom',
         'menu-item-status' => 'publish'
     ]);
 }

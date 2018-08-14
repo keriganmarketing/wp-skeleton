@@ -4,7 +4,7 @@
             
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-content">
-                    <h4 class="short-underline">Port St. Joe Office</h4>
+                    <h4 class="short-underline">Location</h4>
                     <p><a href="tel:{{ get_field('phone', 'option') }}">{{ get_field('phone', 'option') }}</a> <em>phone</em></p>
                     <p><a href="tel:{{ get_field('fax', 'option') }}">{{ get_field('fax', 'option') }}</a> <em>fax</em></p>
                     <p>{!! nl2br(get_field('address', 'option')) !!}</p>

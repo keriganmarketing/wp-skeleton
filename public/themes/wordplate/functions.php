@@ -6,7 +6,6 @@ use KeriganSolutions\KMATeam\Team;
 use KeriganSolutions\KMAPortfolio\Portfolio;
 use KeriganSolutions\KMATestimonials\Testimonial;
 use KeriganSolutions\KMAContactInfo\ContactInfo;
-use Testing\PermitForm;
 use Testing\ContactForm;
 use Testing\KMAMail;
 
@@ -14,9 +13,7 @@ use Testing\KMAMail;
 require template_path('includes/plugins/plate.php');
 require template_path('includes/plugins/theme-setup.php');
 require template_path('includes/plugins/acf-page-fields.php');
-require('testing/PermitForm.php');
 require('testing/ContactForm.php');
-require('post-types/planning_request.php');
 require('post-types/contact_request.php');
 require('testing/KMAMail/KMAMail.php');
 require('testing/KMAMail/Message.php');
@@ -32,7 +29,6 @@ require('testing/KMAMail/Message.php');
     'type' => 'text',
     'parent' => 'group_contact_info',
 ])->use();
-new PermitForm();
 new ContactForm();
 
 $socialLinks = new KeriganSolutions\SocialMedia\SocialSettingsPage();
@@ -131,32 +127,6 @@ function team_shortcode() {
     return $output;
 }
 add_shortcode( 'team', 'team_shortcode' );
-
-function portfolio_shortcode( $atts ) {
-    $locations = get_terms(['taxonomy' => 'build-location']);
-
-    $a = [
-        'selected-location' => (isset($_GET['location']) ? $_GET['location'] : ''),
-        'selected-type'     => (isset($_GET['type']) ? $_GET['type'] : ''),
-        'limit'             => (isset($_GET['limit']) ? $_GET['limit'] : -1),
-        'locations'         => htmlentities(json_encode(get_terms(['taxonomy' => 'build-location'])), ENT_QUOTES),
-    ];
-
-    $selectOptions = '';
-    foreach($locations as $term){
-        $selectOptions .= '<option value="'.$term->slug.'">'.$term->name.'</option>';
-    }
-
-    $output =
-    '<portfolio-gallery
-        :locations="' . $a['locations'] . '"
-        location="'. $a['selected-location'] .'"
-        type="'. $a['selected-type'] .'"
-        ></portfolio-gallery>';
-
-    return $output;
-}
-add_shortcode( 'kma_portfolio', 'portfolio_shortcode' );
 
 function testimonial_shortcode( $atts ) {
     $a = shortcode_atts( [

@@ -102,7 +102,6 @@ function create_default_menus(){
         } 
         set_theme_mod('nav_menu_locations', $locations); 
     }
-
 }
 
 function add_page_to_menu($menu, $name, $link){

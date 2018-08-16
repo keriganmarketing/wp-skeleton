@@ -66,16 +66,35 @@ body {
 
 }
 
+.mobile-menu {
+    display: none;
+    
+    &.open {
+        display: block;
+        width: 100%;
+        min-height: 100vh;
+        padding: 4rem 0 2rem;
+        z-index: 5;
+        background-color: $primary;
+        padding: 2rem;
+        color: #FFF;
+        position: fixed;
+
+        ul.navbar-nav li a {
+            font-size: 1.2em;
+            color: #FFF;
+        }
+    }
+}
+
 .top {
-    background-color: #f9feff;
+    transition: all .5s linear;
     position: relative;
     z-index: 6;
+    position: fixed;
+    width: 100%;
 
     .btn {
-        position: absolute;
-        top: 33px;
-        right: 15px;
-        z-index: 301;
         font-weight: $font-weight-bolder;
         letter-spacing: 2px;
         font-size: 20px;
@@ -85,66 +104,40 @@ body {
         }
     }
 
-    .mobile-menu {
-        display: block;
-        width: 100%;
-        padding: 2rem 0;
-        position: absolute;
-        z-index: 200;
-        background-color: $primary;
-        padding: 2rem;
-        color: #FFF;
-        left:0;
-        top: 108px;
-        margin-top: 0;
-
-        @media (min-width: 576px) {
-            top: 122px;
-        }
-
-        ul.navbar-nav li a {
-            text-align: right;
-            font-size: 1.2em;
-            color: #FFF;
-        }
-    }
-
-    .navbar-expand-xl {
+    .topnav {
         height: 100%;
 
-        .main-navigation {
-            a.nav-link {
-                color: #848484;
-                padding: 1.5rem .75rem;
+        a.nav-link {
+            color: #FFF;
+            padding: 1.5rem .75rem;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+        .dropdown-menu {
+            border: 0;
+            border-top: .5rem solid $secondary;
+            margin-top: -1px;
+            border-radius: 0;
+            padding: 0;
+            background-color: $dark;
+            width: 230px;
+
+            a.dropdown-item {
+                color: #FFF;
+                background-color: transparent;
+                padding: 1rem;
 
                 &:hover {
                     color: $primary;
-                }
-            }
-            .dropdown-menu {
-                border: 0;
-                border-top: .5rem solid $secondary;
-                margin-top: -1px;
-                border-radius: 0;
-                padding: 0;
-                background-color: $dark;
-                width: 230px;
-
-                a.dropdown-item {
-                    color: #FFF;
-                    background-color: transparent;
-                    padding: 1rem;
-
-                    &:hover {
-                        color: $primary;
-                        background-color: $dark !important;
-                    }
+                    background-color: $dark !important;
                 }
             }
         }
     }
 }
-  
+
 // Navigation
 ul.navbar-nav {
     list-style: none;
@@ -153,14 +146,31 @@ ul.navbar-nav {
     li {
         a {
             padding: .5rem;
-            color: #848484;
+            color: #FFF;
             text-transform: uppercase;
             text-decoration: none;
             font-weight: 600;
             font-size: 13px;
+            transition: all .5s linear;
+        }
+    }
+}
 
-            &:hover {
-                color: #b73838;
+.mobile-menu-open,
+.scrolling {
+    .top {
+        background-color: #FFF;
+        box-shadow: 0 0 .5rem rgba(0,0,0,.2);
+                
+        .topnav {
+            list-style: none;
+            display: flex;
+
+            li {
+                a.nav-link {
+                    color: #555;
+                    padding: .75rem .75rem;
+                }
             }
         }
     }
@@ -169,7 +179,6 @@ ul.navbar-nav {
 // Body Content
 main {
     position: relative;
-    z-index: 5;
     background: transparent;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     
@@ -179,7 +188,7 @@ main {
     }
 
     article {
-        padding: 2rem 1rem 0;
+        padding: 2rem 1rem 1rem;
         text-align: left;
         background-color: #FFF;
 
@@ -272,16 +281,16 @@ main {
 // Main Slider
 .slider-container {
     position: relative;
-    height: 200px;
+    height: 300px;
     overflow: hidden;
     z-index: 0;
 
     @media (min-width: 576px){
-        height: 350px;
+        height: 400px;
     }
 
     @media (min-width: 768px){
-        height: 450px;
+        height: 500px;
     }
 
     @media (min-width: 992px){

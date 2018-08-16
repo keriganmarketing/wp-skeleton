@@ -17,8 +17,8 @@ declare(strict_types=1);
 // Disable sidebar menu items.
 add_theme_support('plate-disable-menu', [
     'edit-comments.php', // comments
-    'index.php', // dashboard
-    'upload.php', // media
+    //'index.php', // dashboard
+    //'upload.php', // media
 ]);
 
 // Disable meta boxes in editor.
@@ -42,7 +42,7 @@ add_theme_support('plate-disable-editor', [
 add_theme_support('plate-disable-dashboard', [
     'dashboard_activity',
     'dashboard_incoming_links',
-    'dashboard_plugins',
+    //'dashboard_plugins',
     'dashboard_recent_comments',
     'dashboard_primary',
     'dashboard_quick_press',
@@ -56,10 +56,10 @@ add_theme_support('plate-disable-toolbar', [
     'comments',
     'wp-logo',
     'edit',
-    'appearance',
+    //'appearance',
     'view',
-    'new-content',
-    'updates',
+    //'new-content',
+    //'updates',
     'search',
 ]);
 

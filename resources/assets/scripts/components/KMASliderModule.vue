@@ -13,7 +13,10 @@
                         'active': index == activeSlide
                     }"
                     :style="{ 'background-image': 'url(' + slide.photo.url + ')' }">
+
+                    <div class="slide-content" v-if="(slide.slide_content != '')" v-html="slide.slide_content"></div>
                     <a class="slidelink" v-if="(slide.href != '')" :href="slide.href" :target="slide.target" ></a>
+                    <div class="slide-overlay" v-if="(slide.overlay === true)"></div>
                 </div>
             </div>
 
@@ -59,7 +62,7 @@
                 }
             }
 
-            axios.get("/wp-json/kerigansolutions/v1/slider" + request)
+            http.get("/wp-json/kerigansolutions/v1/slider" + request)
                 .then(response => {
                     this.sliderData = response.data; 
                 });
@@ -150,7 +153,8 @@
         background-size: cover;
         left:0; right: 0; top: 0; bottom: 0;
         height: auto;
-
+        display: flex;
+        align-items: center;
     }
     .slide.active {
         opacity: 1;
@@ -162,7 +166,25 @@
 
     .slidelink {
         position: absolute;
+        z-index: 15;
         left:0; right: 0; top: 0; bottom: 0;
+    }
+
+    .slide-overlay {
+        position: absolute;
+        z-index: 2;
+        left:0; right: 0; top: 0; bottom: 0;
+        background-color: rgba(0,0,0,.4);
+    }
+
+    .slide-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+    }
+
+    .slide-content h2 {
+        color: #FFF;
     }
 
 </style>

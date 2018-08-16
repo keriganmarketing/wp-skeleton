@@ -51,8 +51,7 @@
     .mobile-menu {
         display: block;
         width: 100%;
-        padding: 2rem 0;
-        margin-top: -100%;
+        padding: 5rem 2rem;
         transition: all ease-in 1s;
     }
     .mobile-menu .nav-icon {

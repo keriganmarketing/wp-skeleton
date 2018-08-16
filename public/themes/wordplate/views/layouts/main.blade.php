@@ -9,7 +9,13 @@
 </head>
 <body {{ body_class() }}>
     <div id="app">
-        <div class="site-wrapper" :class="{'full-height': footerStuck, 'scrolling': isScrolling }">
+        <div 
+            class="site-wrapper" 
+            :class="{
+                'full-height': footerStuck, 
+                'scrolling': isScrolling,
+                'mobile-menu-open': mobileMenuOpen 
+            }">
             @include('partials.header')
 
             @yield('content')

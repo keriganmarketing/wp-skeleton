@@ -31,7 +31,7 @@
         },
 
         mounted () {
-            axios.get("/wp-json/kerigansolutions/v1/social-links/")
+            http.get("/wp-json/kerigansolutions/v1/social-links/")
                 .then(response => {
                     this.socialData = response.data; 
                 });

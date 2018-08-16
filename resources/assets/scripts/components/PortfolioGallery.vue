@@ -110,7 +110,7 @@ export default {
             request += (this.selectedType != '' ? '&construction-type=' + this.selectedType : '' );
             request += '&limit=' + this.limit;
 
-            axios.get("/wp-json/kerigansolutions/v1/projects" + request)
+            http.get("/wp-json/kerigansolutions/v1/projects" + request)
                 .then(response => {
                     this.portfolioItems = response.data;
                 }

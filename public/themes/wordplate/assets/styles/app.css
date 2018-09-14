@@ -11892,6 +11892,84 @@ a.text-black:focus {
   }
 }
 
+/*--------------------------------------------------------------
+# WP Core Styles
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+
+#content[tabindex="-1"]:focus {
+  outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+
+.alignleft {
+  display: block;
+  margin: .5rem auto .75rem;
+}
+
+@media (min-width: 576px) {
+  .alignleft {
+    float: left;
+    margin-right: 1.5em;
+  }
+}
+
+.alignright {
+  display: block;
+  margin: .5rem auto .75rem;
+}
+
+@media (min-width: 576px) {
+  .alignright {
+    float: right;
+    margin-left: 1.5em;
+  }
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .5rem;
+}
+
 html {
   height: 100%;
 }
@@ -11961,27 +12039,6 @@ body #app .site-wrapper main.contact iframe {
 
 body #app .site-wrapper.full-height {
   height: 100vh;
-}
-
-.mobile-menu {
-  display: none;
-}
-
-.mobile-menu.open {
-  display: block;
-  width: 100%;
-  min-height: 100vh;
-  padding: 4rem 0 2rem;
-  z-index: 5;
-  background-color: #20c997;
-  padding: 2rem;
-  color: #FFF;
-  position: fixed;
-}
-
-.mobile-menu.open ul.navbar-nav li a {
-  font-size: 1.2em;
-  color: #FFF;
 }
 
 .top {
@@ -12200,6 +12257,12 @@ main article h2::after {
 @media (min-width: 992px) {
   .slider-container {
     height: 650px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slider-container {
+    height: 100vh;
   }
 }
 

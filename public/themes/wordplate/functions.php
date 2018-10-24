@@ -13,6 +13,8 @@ use Testing\KMAMail;
 require template_path('includes/plugins/plate.php');
 require template_path('includes/plugins/theme-setup.php');
 require template_path('includes/plugins/acf-page-fields.php');
+require template_path('includes/plugins/branded-login.php');
+require template_path('includes/plugins/editor-filters.php');
 require('testing/ContactForm.php');
 require('post-types/contact_request.php');
 require('testing/KMAMail/KMAMail.php');
@@ -70,27 +72,10 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('wordplate', mix('scripts/app.js'), '', '', true);
 });
 
-
-// Remove JPEG compression.
-add_filter('jpeg_quality', function () {
-    return 100;
-}, 10, 2);
-
 // Custom Blade Cache Path
 add_filter('bladerunner/cache/path', function () {
     return '../../uploads/.cache';
 });
-
-function expand_login_logo()
-{ ?>
-    <style type="text/css">
-        #login h1 a, .login h1 a {
-            width: auto;
-        }
-    </style>
-<?php
-}
-add_action('login_enqueue_scripts', 'expand_login_logo');
 
 
 function team_shortcode() {

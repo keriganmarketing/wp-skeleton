@@ -2,56 +2,31 @@
 
 declare(strict_types=1);
 
-use KeriganSolutions\KMATeam\Team;
-use KeriganSolutions\KMAPortfolio\Portfolio;
-use KeriganSolutions\KMATestimonials\Testimonial;
-use KeriganSolutions\KMAContactInfo\ContactInfo;
-use Testing\ContactForm;
-use Testing\KMAMail;
+use KeriganSolutions\KMARealtor;
+use Includes\Modules\KMAMail;
 
-// Register plugin helpers.
-require template_path('includes/plugins/plate.php');
-require template_path('includes/plugins/theme-setup.php');
-require template_path('includes/plugins/acf-page-fields.php');
-require template_path('includes/plugins/branded-login.php');
-require template_path('includes/plugins/editor-filters.php');
-require('testing/ContactForm.php');
+require template_path('includes/ThemeControl.php');
+$wordplate = new ThemeControl();
+
+//to replace...
 require('post-types/contact_request.php');
-require('testing/KMAMail/KMAMail.php');
-require('testing/KMAMail/Message.php');
 
-
-(new Portfolio())->use();
-(new Testimonial())->menuIcon('editor-quote')->use();
-(new Team())->use();
-(new ContactInfo())->addField([
-    'key' => 'license_number',
-    'label' => 'License Number',
-    'name' => 'license_number',
-    'type' => 'text',
-    'parent' => 'group_contact_info',
-])->use();
-new ContactForm();
-
-$socialLinks = new KeriganSolutions\SocialMedia\SocialSettingsPage();
-if (is_admin()) {
-    $socialLinks->createPage();
-}
-
-new KeriganSolutions\KMASlider\KMASliderModule();
+new KMARealtor\KMARealtor();
 
 // Set theme defaults.
 add_action('after_setup_theme', function () {
     // Disable the admin toolbar.
     show_admin_bar(false);
 
-    // Add post thumbnails support.
     add_theme_support('post-thumbnails');
-
-    // Add title tag theme support.
+    add_theme_support( 'custom-logo', [
+        'height'      => 100,
+        'width'       => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => ['site-title', 'site-description'],
+    ] );
     add_theme_support('title-tag');
-
-    // Add HTML5 theme support.
     add_theme_support('html5', [
         'caption',
         'comment-form',
@@ -60,14 +35,20 @@ add_action('after_setup_theme', function () {
         'search-form',
         'widgets',
     ]);
+    add_theme_support( 'post-formats', [
+        // 'aside',
+        'gallery',
+        'image',
+        'status',
+        'quote', 
+        'video'
+    ]);
 });
 
 // Enqueue and register scripts the right way.
 add_action('wp_enqueue_scripts', function () {
     wp_deregister_script('jquery');
-
     wp_enqueue_style('wordplate', mix('styles/main.css'));
-
     wp_register_script('wordplate', mix('scripts/app.js'), '', '', true);
     wp_enqueue_script('wordplate', mix('scripts/app.js'), '', '', true);
 });
@@ -78,64 +59,61 @@ add_filter('bladerunner/cache/path', function () {
 });
 
 
-function team_shortcode() {
-    $output =
-    '<div class="team-grid">
-        <div class="row justify-content-center">';
-
-    $team = new Team();
-    $members = $team->queryTeam();
-
-    foreach($members as $member){
-        $output .=
-        '<div class="col-md-6 col-lg-4">
-            <div class="card team-member text-center">
-                <a href="' . $member['link'] . '" >
-                    <img src="' . $member['image']['sizes']['thumbnail'] . '" class="card-img-top" alt="' . $member['name'] . '" >
-                </a>
-                <div class="card-body">
-                    <h3 class="text-uppercase text-dark">' . $member['name'] . '</h3>
-                    <p class="text-uppercase text-light">' . $member['title'] . '</p>
-                    <p class="text-uppercase text-light">
-                    <a href="mailto:' . $member['email'] . '" >' . $member['email'] . '</a><br>
-                    <a href="tel:' . $member['phone'] . '" >' . $member['phone'] . '</p>
-                </div>
+//[quicksearch]
+function quicksearch_func( $atts ){
+    ob_start();
+    ?>
+    <div class="quick-search p-4 p-sm-0 p-md-4 d-inline-block text-white">
+        <form action="property-search">
+        <input name="q" value="search" type="hidden" >
+        <div class="row align-items-center no-gutters">
+            <div class="col-12 col-sm-5 col-md-auto mb-2 pr-sm-2 pr-md-0">
+                <property-type></property-type>
             </div>
-            <div class="member-button text-center">
-                <a href="' . $member['link'] . '" class="btn btn-outline-light" >View Bio</a>
+            <div class="d-none d-md-block col-auto mb-2 px-4">IN</div>
+            <div class="col-9 col-sm-5 col-md-auto mb-2 pr-4">
+                <area-field></area-field>
             </div>
-        </div>';
-    }
-
-    $output .= '</div></div>';
-
-    return $output;
-}
-add_shortcode( 'team', 'team_shortcode' );
-
-function testimonial_shortcode( $atts ) {
-    $a = shortcode_atts( [
-        'limit'    => -1,
-        'featured' => false,
-        'order'    => 'ASC',
-        'orderby'  => 'menu_order'
-    ], $atts );
-
-    $testimonials = new Testimonial;
-    $list = $testimonials->queryTestimonials($a['featured'], $a['limit'], $a['orderby'], $a['order']);
-
-    $output = '<div class="testimonials" >';
-    foreach ($list as $item) {
-        $output .= '
-        <div class="testimonial list" id="' . $item->ID . '" >
-            <p class="testimonial-date" >' . get_the_date('', $item) . '</p>
-            ' . apply_filters('the_content', $item->post_content) . '
-            <p class="author" >&mdash;' . $item->byline . '</p>
+            <div class="col-3 col-sm col-md-auto mb-2">
+                <button class="btn btn-block btn-primary">GO</button>
+            </div>
         </div>
-        ';
-    }
-    $output .= '</div>';
-
-    return $output;
+        </form>
+    </div>
+    <?php
+	return ob_get_clean();
 }
-add_shortcode( 'kma_testimonials', 'testimonial_shortcode' );
+add_shortcode( 'quicksearch', 'quicksearch_func' );
+
+function getVideoImageFromEmbed($postContent){
+    if($postContent == ''){
+        return false;
+    }
+    preg_match('/src="(.*?)"/', $postContent, $video);
+
+    print_r($video);
+    $videoParts = explode('/',$video[2]);
+    return 'https://img.youtube.com/vi/'.$videoParts[3].'/maxresdefault.jpg';
+}
+
+// Add og:video meta tag for episodes and videos
+function yoast_add_og_video() {
+    if ( get_post_format() == 'video' ) {
+        $post = get_post();
+        preg_match('/\[embed(.*)](.*)\[\/embed]/', $post->post_content, $video);
+        $videoParts = explode('/',$video[2]);
+        echo '<meta property="og:video" content="' .  $video[2] . '" />', "\n";
+        echo '<meta property="og:video:secure_url" content="' .  str_replace('http://','https://' , $video[2]) . '" />', "\n";
+        echo '<meta property="og:video:height" content="1080" />', "\n";
+        echo '<meta property="og:video:width" content="1920" />', "\n";
+        //echo '<meta property="og:image" content="https://img.youtube.com/vi/'.$videoParts[3].'/maxresdefault.jpg" />', "\n";
+    }
+}
+add_action( 'wpseo_opengraph', 'yoast_add_og_video', 10, 1 );
+
+add_filter('wpseo_opengraph_image', function () {
+    if ( get_post_format() == 'video' ) {
+        $post = get_post();
+        return getVideoImageFromEmbed($post->post_content);
+    }
+});

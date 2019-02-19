@@ -228,6 +228,8 @@ $transition-fade:             opacity .15s linear;
 $transition-collapse:         height .35s ease;
 
 
+$enable-responsive-font-sizes: true;
+
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
@@ -246,18 +248,18 @@ $font-size-sm:                ($font-size-base * .875);
 $font-weight-light:           400;
 $font-weight-normal:          400;
 $font-weight-medium:          400;
-$font-weight-bold:            700;
+$font-weight-bold:            600;
 $font-weight-bolder:          800;
 $font-weight-black:           800;
-
+                   
 $font-weight-base:            $font-weight-normal;
 $line-height-base:            1.5;
 
-$h1-font-size:                $font-size-base * 1.8;
-$h2-font-size:                $font-size-base * 1.5;
+$h1-font-size:                $font-size-base * 1.6;
+$h2-font-size:                $font-size-base * 1.4;
 $h3-font-size:                $font-size-base * 1.2;
 $h4-font-size:                $font-size-base * 1.1;
-$h5-font-size:                $font-size-base * 1.1;
+$h5-font-size:                $font-size-base * 1;
 $h6-font-size:                $font-size-base;
 
 $headings-margin-bottom:      ($spacer / 2);
@@ -267,9 +269,9 @@ $headings-line-height:        1.2;
 $headings-color:              inherit;
 
 $display1-size:               6rem;
-$display2-size:               5.5rem;
-$display3-size:               4.5rem;
-$display4-size:               3.5rem;
+$display2-size:               5rem;
+$display3-size:               3rem;
+$display4-size:               1.5rem;
 
 $display1-weight:             300;
 $display2-weight:             300;

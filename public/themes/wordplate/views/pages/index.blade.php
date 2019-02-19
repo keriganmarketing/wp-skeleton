@@ -5,15 +5,14 @@
     @while (have_posts())
         {{ the_post() }}
         @include('partials.mast')
-        <main role="main">
-            <div class="container">
-                <article class="support">
-                    <header class="text-primary">
-                        <h1>{{ $headline != '' ? $headline : the_title() }}</h1>
-                    </header>
-                    {{ the_content() }}
-                </article>
-            </div>
+        <main role="main" class="pb-5">
+            
+            @if( is_page() )
+                @include('formats.page')
+            @else
+                @include('formats.' . (get_post_format() != '' ? get_post_format() : 'standard'))
+            @endif
+
         </main>
     @endwhile
 @else

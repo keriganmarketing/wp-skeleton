@@ -16,6 +16,7 @@ export default class ContactForm {
         axios.post(this.url, {
             name:      this.name,
             email:     this.email,
+            phone:     this.phone,
             comments:  this.comments,
         }).then(() => {
             this.success = true;
@@ -32,6 +33,7 @@ export default class ContactForm {
     clearForm() {
         this.name      = "";
         this.email     = "";
+        this.phone     = "";
         this.comments  = "";
     }
 }

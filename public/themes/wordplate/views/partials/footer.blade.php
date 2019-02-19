@@ -1,30 +1,20 @@
 <footer class="sticky-footer bg-black py-4">
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-sm-6 col-lg-3">
-                <div class="footer-content">
-                    <h4 class="short-underline">Location</h4>
-                    <p><a href="tel:{{ get_field('phone', 'option') }}">{{ get_field('phone', 'option') }}</a> <em>phone</em></p>
-                    <p><a href="tel:{{ get_field('fax', 'option') }}">{{ get_field('fax', 'option') }}</a> <em>fax</em></p>
-                    <p>{!! nl2br(get_field('address', 'option')) !!}</p>
-                    <h4 class="short-underline">Connect</h4>
-                    <social-icons :size="37" :margin=".25" class="d-flex social-icons" ></social-icons>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="footer-content">
-                    <h4 class="short-underline">Contact Us</h4>
-                    <contact-form></contact-form>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 text-md-right">
-                <div class="footer-content">
-                    <main-menu :main-nav="{{ website_menu('footer-navigation') }}" class="footer-menu" ></main-menu>
-                </div>
-            </div>
-            
+    <div class="container text-center">
+        <h4>Contact Me</h4>
+        <p class="m-0"><a href="tel:{{ get_field('phone', 'option') }}">{{ get_field('phone', 'option') }}</a></p>
+        <p><a href="mailto:{{ get_field('email', 'option') }}">{{ get_field('email', 'option') }}</a></p>
+        <social-icons :size="37" :margin=".25" class="d-flex social-icons justify-content-center mb-4" ></social-icons>
+
+        <contact-form class="contact-form"></contact-form>
+
+        @if(get_field('broker_logo', 'option'))
+        <div class="broker-logo" >
+            {!! (get_field('broker_link', 'option') ? '<a href="'.get_field('broker_link', 'option').'" target="_blank" >' : null) !!}
+            <img src="{{ (get_field('broker_logo', 'option'))['url'] }}" alt="{{ get_field('broker_name', 'option') }}" >
+            {!! (get_field('broker_link', 'option') ? '</a>' : null) !!}
         </div>
+        @endif
+
     </div>
     <hr>
     <p class="copyright text-center">&copy;{{ date('Y') }} {{ get_bloginfo() }}. All Rights&nbsp;Reserved. 

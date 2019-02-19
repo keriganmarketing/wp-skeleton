@@ -5,13 +5,30 @@
     @while (have_posts())
         {{ the_post() }}
                 
-        <kma-slider class="slider-container"></kma-slider>
+        @if(get_theme_mod('header_feature') == 'slider')
+            <kma-slider 
+                class="slider-container" 
+                style="
+                    height: {{ get_theme_mod('top_section_height') }};
+                    "
+            ></kma-slider>
+        @endif
+
+        @if(get_theme_mod('header_feature') == 'main-image')
+            @include('partials.headerimage')
+        @endif
+        
+        @if($headshot != '')
+        <div class="headshot d-flex justify-content-center" >
+            <img src="{{ $headshot['url'] }}" class="rounded-circle" style="width:250px; margin-top:-125px;">
+        </div>
+        @endif
+
         <main role="main">
             <div class="container">
-
-                <div class="row no-gutters">
-                    <div class="col-lg-7">
-                        <article class="front">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-xl-9">
+                        <article class="front pb-4 text-center">
                             <header>
                                 <h1>{{ the_title() }}</h1>
                             </header>
@@ -21,30 +38,42 @@
                         </article>
                     </div>
                 </div>
-
             </div>
         </main>
 
-        <div class="feature-box-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-white box-container">
-                        <div class="feature-box feat-one">
-                            <h3 class="text-uppercase">{{ $featureBox1['title'] }}</h3>
-                            <p>{{ $featureBox1['text'] }}</p>
-                            <a class="btn btn-lg btn-outline-white" href="{{ $featureBox1['link']['url'] }}" >Learn More &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-white box-container">
-                        <div class="feature-box feat-two">
-                            <h3 class="text-uppercase">{{ $featureBox2['title'] }}</h3>
-                            <p>{{ $featureBox2['text'] }}</p>
-                            <a class="btn btn-lg btn-outline-white" href="{{ $featureBox2['link']['url'] }}" >Learn More &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
+        @if($featuredListings)
+        <div class="featured-listings-section bg-dark text-center text-white">
+            <div class="section-title">
+                <h2>Featured Listings</h2>
+            </div>
+            <div class="container-wide pb-3">
+                <carousel 
+                    :per-page-custom="[[320,1],[576,2],[1024,3],[1200,4]]" 
+                    :autoplay="true"
+                    :loop="true"
+                    :pagination-enabled="false"
+                    {{-- pagination-position="top"
+                    pagination-active-color="red" --}}
+                    :scroll-per-page="false"
+                    :navigation-enabled="true"
+                    navigation-next-label='<i class="fa fa-chevron-right text-white" aria-hidden="true"></i>'
+                    navigation-prev-label='<i class="fa fa-chevron-left text-white" aria-hidden="true"></i>'
+                    class="row" 
+                    >
+                    @foreach($featuredListings as $listing)
+                    <slide class="col-md-6 col-lg-4 col-xl-3">
+                    @include('partials.minilisting')
+                    </slide>
+                    @endforeach
+                </carousel>
+            </div>
+            <div class="section-button">
+                <a class="btn btn-primary" href="/my-listings" >All My Listings</a>
             </div>
         </div>
+        @endif
+
+        @include('partials.featureboxes')
 
     @endwhile
 @else

@@ -10,7 +10,11 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '841f98c5d948ce534a6f87abe5b50614' => __DIR__ . '/..' . '/roots/wp-password-bcrypt/wp-password-bcrypt.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'a21e70ca1cdeca5aa284b987d10b88cd' => __DIR__ . '/..' . '/wordplate/framework/src/helpers.php',
@@ -38,6 +42,7 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         array (
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
         'K' => 
@@ -46,11 +51,13 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
             'KeriganSolutions\\KMATestimonials\\' => 33,
             'KeriganSolutions\\KMATeam\\' => 25,
             'KeriganSolutions\\KMASlider\\' => 27,
+            'KeriganSolutions\\KMARealtor\\' => 28,
             'KeriganSolutions\\KMAPortfolio\\' => 30,
             'KeriganSolutions\\KMAContactInfo\\' => 32,
         ),
         'I' => 
         array (
+            'Includes\\Modules\\' => 17,
             'Illuminate\\View\\' => 16,
             'Illuminate\\Support\\' => 19,
             'Illuminate\\Filesystem\\' => 22,
@@ -58,6 +65,12 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
             'Illuminate\\Config\\' => 18,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
         ),
         'D' => 
         array (
@@ -128,6 +141,10 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -148,6 +165,10 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         array (
             0 => __DIR__ . '/..' . '/kerigansolutions/kma-slider-module/src',
         ),
+        'KeriganSolutions\\KMARealtor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src',
+        ),
         'KeriganSolutions\\KMAPortfolio\\' => 
         array (
             0 => __DIR__ . '/..' . '/kerigansolutions/kma-portfolio-module/src',
@@ -155,6 +176,10 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         'KeriganSolutions\\KMAContactInfo\\' => 
         array (
             0 => __DIR__ . '/..' . '/kerigansolutions/kma-contact-info/src',
+        ),
+        'Includes\\Modules\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/public/themes/wordplate/modules',
         ),
         'Illuminate\\View\\' => 
         array (
@@ -183,6 +208,18 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         'Illuminate\\Config\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/config',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
         'Dotenv\\' => 
         array (
@@ -261,6 +298,7 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         'Brain\\Hierarchy\\Loader\\ExtensionMapTemplateLoader' => __DIR__ . '/..' . '/brain/hierarchy/src/Loader/ExtensionMapTemplateLoader.php',
         'Brain\\Hierarchy\\Loader\\FileRequireLoader' => __DIR__ . '/..' . '/brain/hierarchy/src/Loader/FileRequireLoader.php',
         'Brain\\Hierarchy\\Loader\\TemplateLoaderInterface' => __DIR__ . '/..' . '/brain/hierarchy/src/Loader/TemplateLoaderInterface.php',
+        'Brain\\Hierarchy\\PostTemplates' => __DIR__ . '/..' . '/brain/hierarchy/src/PostTemplates.php',
         'Brain\\Hierarchy\\QueryTemplate' => __DIR__ . '/..' . '/brain/hierarchy/src/QueryTemplate.php',
         'Brain\\Hierarchy\\QueryTemplateInterface' => __DIR__ . '/..' . '/brain/hierarchy/src/QueryTemplateInterface.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
@@ -368,6 +406,75 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         'Dotenv\\Exception\\ValidationException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/ValidationException.php',
         'Dotenv\\Loader' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Loader.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
+        'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
+        'GuzzleHttp\\ClientInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/ClientInterface.php',
+        'GuzzleHttp\\Cookie\\CookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/CookieJar.php',
+        'GuzzleHttp\\Cookie\\CookieJarInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/CookieJarInterface.php',
+        'GuzzleHttp\\Cookie\\FileCookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php',
+        'GuzzleHttp\\Cookie\\SessionCookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php',
+        'GuzzleHttp\\Cookie\\SetCookie' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/SetCookie.php',
+        'GuzzleHttp\\Exception\\BadResponseException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/BadResponseException.php',
+        'GuzzleHttp\\Exception\\ClientException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ClientException.php',
+        'GuzzleHttp\\Exception\\ConnectException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ConnectException.php',
+        'GuzzleHttp\\Exception\\GuzzleException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/GuzzleException.php',
+        'GuzzleHttp\\Exception\\RequestException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/RequestException.php',
+        'GuzzleHttp\\Exception\\SeekException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/SeekException.php',
+        'GuzzleHttp\\Exception\\ServerException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ServerException.php',
+        'GuzzleHttp\\Exception\\TooManyRedirectsException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/TooManyRedirectsException.php',
+        'GuzzleHttp\\Exception\\TransferException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/TransferException.php',
+        'GuzzleHttp\\HandlerStack' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/HandlerStack.php',
+        'GuzzleHttp\\Handler\\CurlFactory' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlFactory.php',
+        'GuzzleHttp\\Handler\\CurlFactoryInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlFactoryInterface.php',
+        'GuzzleHttp\\Handler\\CurlHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlHandler.php',
+        'GuzzleHttp\\Handler\\CurlMultiHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php',
+        'GuzzleHttp\\Handler\\EasyHandle' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/EasyHandle.php',
+        'GuzzleHttp\\Handler\\MockHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/MockHandler.php',
+        'GuzzleHttp\\Handler\\Proxy' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/Proxy.php',
+        'GuzzleHttp\\Handler\\StreamHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/StreamHandler.php',
+        'GuzzleHttp\\MessageFormatter' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/MessageFormatter.php',
+        'GuzzleHttp\\Middleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Middleware.php',
+        'GuzzleHttp\\Pool' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Pool.php',
+        'GuzzleHttp\\PrepareBodyMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php',
+        'GuzzleHttp\\Promise\\AggregateException' => __DIR__ . '/..' . '/guzzlehttp/promises/src/AggregateException.php',
+        'GuzzleHttp\\Promise\\CancellationException' => __DIR__ . '/..' . '/guzzlehttp/promises/src/CancellationException.php',
+        'GuzzleHttp\\Promise\\Coroutine' => __DIR__ . '/..' . '/guzzlehttp/promises/src/Coroutine.php',
+        'GuzzleHttp\\Promise\\EachPromise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/EachPromise.php',
+        'GuzzleHttp\\Promise\\FulfilledPromise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/FulfilledPromise.php',
+        'GuzzleHttp\\Promise\\Promise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/Promise.php',
+        'GuzzleHttp\\Promise\\PromiseInterface' => __DIR__ . '/..' . '/guzzlehttp/promises/src/PromiseInterface.php',
+        'GuzzleHttp\\Promise\\PromisorInterface' => __DIR__ . '/..' . '/guzzlehttp/promises/src/PromisorInterface.php',
+        'GuzzleHttp\\Promise\\RejectedPromise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/RejectedPromise.php',
+        'GuzzleHttp\\Promise\\RejectionException' => __DIR__ . '/..' . '/guzzlehttp/promises/src/RejectionException.php',
+        'GuzzleHttp\\Promise\\TaskQueue' => __DIR__ . '/..' . '/guzzlehttp/promises/src/TaskQueue.php',
+        'GuzzleHttp\\Promise\\TaskQueueInterface' => __DIR__ . '/..' . '/guzzlehttp/promises/src/TaskQueueInterface.php',
+        'GuzzleHttp\\Psr7\\AppendStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/AppendStream.php',
+        'GuzzleHttp\\Psr7\\BufferStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/BufferStream.php',
+        'GuzzleHttp\\Psr7\\CachingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/CachingStream.php',
+        'GuzzleHttp\\Psr7\\DroppingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/DroppingStream.php',
+        'GuzzleHttp\\Psr7\\FnStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/FnStream.php',
+        'GuzzleHttp\\Psr7\\InflateStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/InflateStream.php',
+        'GuzzleHttp\\Psr7\\LazyOpenStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/LazyOpenStream.php',
+        'GuzzleHttp\\Psr7\\LimitStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/LimitStream.php',
+        'GuzzleHttp\\Psr7\\MessageTrait' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/MessageTrait.php',
+        'GuzzleHttp\\Psr7\\MultipartStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/MultipartStream.php',
+        'GuzzleHttp\\Psr7\\NoSeekStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/NoSeekStream.php',
+        'GuzzleHttp\\Psr7\\PumpStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/PumpStream.php',
+        'GuzzleHttp\\Psr7\\Request' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Request.php',
+        'GuzzleHttp\\Psr7\\Response' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Response.php',
+        'GuzzleHttp\\Psr7\\Rfc7230' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Rfc7230.php',
+        'GuzzleHttp\\Psr7\\ServerRequest' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/ServerRequest.php',
+        'GuzzleHttp\\Psr7\\Stream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Stream.php',
+        'GuzzleHttp\\Psr7\\StreamDecoratorTrait' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamDecoratorTrait.php',
+        'GuzzleHttp\\Psr7\\StreamWrapper' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamWrapper.php',
+        'GuzzleHttp\\Psr7\\UploadedFile' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UploadedFile.php',
+        'GuzzleHttp\\Psr7\\Uri' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Uri.php',
+        'GuzzleHttp\\Psr7\\UriNormalizer' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriNormalizer.php',
+        'GuzzleHttp\\Psr7\\UriResolver' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriResolver.php',
+        'GuzzleHttp\\RedirectMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RedirectMiddleware.php',
+        'GuzzleHttp\\RequestOptions' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RequestOptions.php',
+        'GuzzleHttp\\RetryMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RetryMiddleware.php',
+        'GuzzleHttp\\TransferStats' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/TransferStats.php',
+        'GuzzleHttp\\UriTemplate' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/UriTemplate.php',
         'Illuminate\\Config\\Repository' => __DIR__ . '/..' . '/illuminate/config/Repository.php',
         'Illuminate\\Container\\BoundMethod' => __DIR__ . '/..' . '/illuminate/container/BoundMethod.php',
         'Illuminate\\Container\\Container' => __DIR__ . '/..' . '/illuminate/container/Container.php',
@@ -453,6 +560,7 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         'Illuminate\\Contracts\\Support\\MessageProvider' => __DIR__ . '/..' . '/illuminate/contracts/Support/MessageProvider.php',
         'Illuminate\\Contracts\\Support\\Renderable' => __DIR__ . '/..' . '/illuminate/contracts/Support/Renderable.php',
         'Illuminate\\Contracts\\Support\\Responsable' => __DIR__ . '/..' . '/illuminate/contracts/Support/Responsable.php',
+        'Illuminate\\Contracts\\Translation\\HasLocalePreference' => __DIR__ . '/..' . '/illuminate/contracts/Translation/HasLocalePreference.php',
         'Illuminate\\Contracts\\Translation\\Loader' => __DIR__ . '/..' . '/illuminate/contracts/Translation/Loader.php',
         'Illuminate\\Contracts\\Translation\\Translator' => __DIR__ . '/..' . '/illuminate/contracts/Translation/Translator.php',
         'Illuminate\\Contracts\\Validation\\Factory' => __DIR__ . '/..' . '/illuminate/contracts/Validation/Factory.php',
@@ -569,9 +677,18 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/illuminate/view/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/illuminate/view/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/illuminate/view/ViewServiceProvider.php',
+        'Includes\\Modules\\ContactForm' => __DIR__ . '/../..' . '/public/themes/wordplate/modules/ContactForm.php',
         'JsonSerializable' => __DIR__ . '/..' . '/nesbot/carbon/src/JsonSerializable.php',
         'KeriganSolutions\\KMAContactInfo\\ContactInfo' => __DIR__ . '/..' . '/kerigansolutions/kma-contact-info/src/ContactInfo.php',
         'KeriganSolutions\\KMAPortfolio\\Portfolio' => __DIR__ . '/..' . '/kerigansolutions/kma-portfolio-module/src/Portfolio.php',
+        'KeriganSolutions\\KMARealtor\\FeaturedListings' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/FeaturedListings.php',
+        'KeriganSolutions\\KMARealtor\\KMARealtor' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/KMARealtor.php',
+        'KeriganSolutions\\KMARealtor\\Listing' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/Listing.php',
+        'KeriganSolutions\\KMARealtor\\Mothership' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/Mothership.php',
+        'KeriganSolutions\\KMARealtor\\Pagination' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/Pagination.php',
+        'KeriganSolutions\\KMARealtor\\RealtorDashboard' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/RealtorDashboard.php',
+        'KeriganSolutions\\KMARealtor\\RealtorListings' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/RealtorListings.php',
+        'KeriganSolutions\\KMARealtor\\Search' => __DIR__ . '/..' . '/kerigansolutions/kma-rafgc-realtor/src/Search.php',
         'KeriganSolutions\\KMASlider\\KMASliderModule' => __DIR__ . '/..' . '/kerigansolutions/kma-slider-module/src/KMASliderModule.php',
         'KeriganSolutions\\KMATeam\\Team' => __DIR__ . '/..' . '/kerigansolutions/kma-team-module/src/Team.php',
         'KeriganSolutions\\KMATestimonials\\Testimonial' => __DIR__ . '/..' . '/kerigansolutions/kma-testimonials/src/Testimonial.php',
@@ -579,6 +696,13 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
+        'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
+        'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
+        'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
+        'Psr\\Http\\Message\\ServerRequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/ServerRequestInterface.php',
+        'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
+        'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
+        'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
         'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
@@ -589,6 +713,7 @@ class ComposerStaticInit8eba9253e37d8bf6090f3791973b4ffb
         'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
         'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
         'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
+        'Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
         'Psr\\SimpleCache\\CacheException' => __DIR__ . '/..' . '/psr/simple-cache/src/CacheException.php',
         'Psr\\SimpleCache\\CacheInterface' => __DIR__ . '/..' . '/psr/simple-cache/src/CacheInterface.php',
         'Psr\\SimpleCache\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/simple-cache/src/InvalidArgumentException.php',

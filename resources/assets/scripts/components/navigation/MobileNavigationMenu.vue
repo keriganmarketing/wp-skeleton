@@ -60,12 +60,24 @@
     
     &.open {
         display: block;
-        width: 100%;
-        max-height: 100vh;
+        height: 100vh;
+        width:100%;
         z-index: 5;
-        padding: 5rem 2rem 2rem;
+        padding: 8rem 2rem 2rem;
         color: #FFF;
         position: fixed;
+        right: 0;
+        text-align: center;
+
+        @media screen and (min-width: 576px){
+            width: auto;
+            text-align: left;
+            padding: 6rem 2rem 2rem;
+        }
+
+        @media screen and (min-width: 993px){
+            padding: 8rem 2rem 2rem;
+        }
 
         ul.navbar-nav li a {
             font-size: 18px;

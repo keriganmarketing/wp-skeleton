@@ -89,4 +89,6 @@ $application->run();
 |
 */
 
+define('WP_DEBUG',true);
+
 require_once ABSPATH.'wp-settings.php';

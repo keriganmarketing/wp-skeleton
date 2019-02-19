@@ -1,40 +1,65 @@
 <template>
     <div>
-        <div class="photo-gallery">
-            <div class="row" v-masonry transition-duration="0.3s" item-selector=".item" >
-                <div v-masonry-tile class="col-sm-6 col-lg-4 item" v-for="(photo, index) in photos" v-bind:key="photo.id" >
-                    <div class="photo-tile has-text-centered" @click="openViewer(index)">
-                        <img :id="'photo-' + photo.id" :src="photo.sizes.medium" :alt="photo.title" class="img-fluid" >
+        <div class="row no-gutters">
+            <div :class="itemClass" v-for="(photo, index) in photos" v-bind:key="photo.id" >
+                <div class="photo-tile has-text-centered">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img @click="openViewer(index)" class="embed-responsive-item cursor-pointer" style="height:auto;" :id="'photo-' + photo.id" :src="photo.url" :alt="photo.name" >
                     </div>
                 </div>
             </div>
         </div>
-        <b-modal ref="gallery" hide-header hide-footer size="lg" centered >
-            <div class="text-center image-container"><img v-if="activePhoto.sizes" :src="activePhoto.sizes.large" :alt="activePhoto.title" class="img-fluid" /></div>
-            <div class="d-flex justify-content-center action-buttons">
-                <a @click="prevPhoto(activePhoto.index)" class="btn btn-outline-white"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-                <a @click="closeViewer" class="btn btn-outline-white" style="margin: 0 4px;">close</a>
-                <a @click="nextPhoto(activePhoto.index)" class="btn btn-outline-white"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        <portal to="modal" >
+            <div class="modal-frame"  v-if="galleryIsOpen" >
+                <div class="modal-container">
+                    <div v-if="photoOpen" class="photo-container" style="height: 80vh; overflow:hidden; padding:1rem;" @click="closeViewer()" >
+                        <img :src="activePhoto.url" :alt="activePhoto.name" style="max-width:100%;max-height:100%;" />
+                    </div>
+                    <div v-if="tourOpen" class="photo-container" style="height: 80vh; width:100%; overflow:hidden; padding:1rem;" @click="closeViewer()" >
+                        <iframe :src="'//' + virtualTour" height="100%" width="100%" border="0" style="overflow:hidden;" ></iframe>
+                    </div>
+                    <div v-if="hasVirtualTour" class="text-xs-center" style="height: 7vh;" >
+                        <a class="btn btn-primary" v-if="!tourOpen" style="color:#FFF;" @click="openTour" >Open Virtual Tour</a>
+                        <a class="btn btn-primary" v-if="tourOpen" style="color:#FFF;" @click="closeTour" >Close Virtual Tour</a>
+                        <a class="btn btn-primary" v-if="tourOpen" style="color:#FFF;" :src="'//' + virtualTour" target="_blank" >Open in new Tab</a>
+                    </div>
+                    <div class="text-xs-center" style="height: 7vh;" >
+                        <a class="dirbutton" style="margin: 0 1rem;" @click="prevPhoto(activePhoto.index);">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 306 306" style="transform: rotate(180deg); height:30px; enable-background:new 0 0 306 306;"  xml:space="preserve">
+                                <polygon fill="#FFF" points="94.35,0 58.65,35.7 175.95,153 58.65,270.3 94.35,306 247.35,153"></polygon>
+                            </svg>
+                        </a>
+                        
+                        <a @click="closeViewer" class="btn btn-info">close</a>
+
+                        <a class="dirbutton" style="margin: 0 1rem;" @click="nextPhoto(activePhoto.index);">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 306 306" style="height:30px; enable-background:new 0 0 306 306;"  xml:space="preserve">
+                                <polygon fill="#FFF" points="94.35,0 58.65,35.7 175.95,153 58.65,270.3 94.35,306 247.35,153"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </b-modal>
+        </portal>
     </div>
 </template>
 
 <script>
-import bModal from 'bootstrap-vue/es/components/modal/modal'
-import bModalDirective from 'bootstrap-vue/es/directives/modal/modal'
-
     export default {
-        components: {
-            'b-modal': bModal
-        },
-        directives: {
-            'b-modal': bModalDirective
-        },
         props: {
             dataPhotos: {
                 type: Array,
                 default: () => []
+            },
+            virtualTour: {
+                type: String,
+                default: null
+            },
+            itemClass: {
+                type: String,
+                default: ''
             }
         },
         data () {
@@ -42,67 +67,99 @@ import bModalDirective from 'bootstrap-vue/es/directives/modal/modal'
                 photos: [],
                 prev: null,
                 next: null,
+                galleryIsOpen: false,
                 activePhoto: {},
-                numPhotos: 0
+                numPhotos: 0,
+                hasVirtualTour: false,
+                tourOpen: false,
+                photoOpen: true
             }
         },
         mounted () {
             this.photos = this.dataPhotos;
             this.numPhotos = this.photos.length;
+            if(this.virtualTour != null){
+                this.hasVirtualTour = true;
+            }
         },
         methods: {
             openViewer(index){
-                this.$refs.gallery.show()
+                this.galleryIsOpen = true;
                 this.activePhoto = this.photos[index];
                 this.activePhoto.index = index;
+
+                this.$root.modalOpen = true;
+
+                //console.log(this.activePhoto);
+            },
+            openTour(){
+                this.tourOpen = true;
+                this.photoOpen = false;
+            },
+            closeTour(){
+                this.tourOpen = false;
+                this.photoOpen = true;
             },
             closeViewer(){
-                this.$refs.gallery.hide()
+                this.galleryIsOpen = false;
+                this.$root.modalOpen = false;
             },
             nextPhoto(index){
                 let newNum = (index !== this.numPhotos-1 ? index+1 : 0);
                 this.activePhoto = this.photos[newNum];
                 this.activePhoto.index = newNum;
+                this.closeTour();
             },
             prevPhoto(index){
                 let newNum = (index !== 0 ? index-1 : this.numPhotos-1);
                 this.activePhoto = this.photos[newNum];
                 this.activePhoto.index = newNum;
+                this.closeTour();
             }
         }
     }
 </script>
 
-<style>
-    .photo-gallery {
-        padding: 2rem 0;
-    }
+<style scoped>
     .photo-tile {
-        margin-bottom: 1rem;
+        overflow: hidden;
+    }
+    .photo-tile img {
         cursor: pointer;
     }
-    
-    .modal .modal-content {
-        background-color: transparent !important;
-        border: none !important;
+    .modal-frame {
+        z-index: 999999999999999;
+        height: 100%;
+        width:100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
     }
-    .modal .modal-body {
-        padding: 0 !important;
-    }
-    .modal {
-        background-color: rgba(0,0,0,.75);
-    }
-    .image-container {
-        height: 80vh;
-        margin-bottom: 1rem;
+    .modal-container {
+        padding: 1rem;
         display: flex;
-        justify-content: center;
+        height: 100%;
+        width:100%;
         align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
     }
-    .action-buttons a {
-        color: #FFF !important;
+    .dirbutton {
+        display: inline-block;
+        line-height: 1em;
+        vertical-align: middle;
+        margin:0 1rem;
     }
-    .action-buttons a:hover {
-        color: #000 !important;
+    .photo-container {
+        height: 80vh;
+        overflow: hidden;
+        align-items: center;
+        display: flex;
+        padding: 1rem;
+        flex-direction: column;
+        justify-content: center;
     }
 </style>

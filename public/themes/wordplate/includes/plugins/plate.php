@@ -42,13 +42,13 @@ add_theme_support('plate-disable-editor', [
 add_theme_support('plate-disable-dashboard', [
     'dashboard_activity',
     'dashboard_incoming_links',
-    //'dashboard_plugins',
+    'dashboard_plugins',
     'dashboard_recent_comments',
     'dashboard_primary',
     'dashboard_quick_press',
     'dashboard_recent_drafts',
     'dashboard_secondary',
-    //'dashboard_right_now',
+    'dashboard_right_now',
 ]);
 
 // Disable links from admin toolbar.

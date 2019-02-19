@@ -6,6 +6,7 @@ html {
     .btn {
         text-transform: uppercase;
         font-size: .9em;
+        line-height: 1.5rem;
         font-weight: $font-weight-bold;
         
         &.btn-lg {
@@ -20,7 +21,6 @@ html {
 
 body {
     height: 100%;
-    font-size: 14px;
 
     #app {
         height: auto !important;
@@ -30,31 +30,19 @@ body {
         .site-wrapper {
             display: flex;
             flex-direction: column;
+
+            .headshot {
+                img {
+                    width: 250px;
+                    margin-top:-125px;
+                    position: relative;
+                    z-index: 3;
+                }
+            }
             
             main {
+                background-color: $white;
                 flex-grow: 1;
-
-                &.contact {
-                    background-color: $black;
-
-                    iframe {
-                        height: 100%;
-                        min-height: 350px;
-                        flex-grow: 1;
-
-                        @media (min-width: 1200px){
-                            min-height: 420px;
-                        }
-
-                        @media (min-width: 2200px){
-                            min-height: 500px;
-                        }
-
-                        @media (min-width: 2600px){
-                            min-height: 650px;
-                        }
-                    }
-                }
             }
             
             &.full-height {
@@ -66,20 +54,42 @@ body {
 
 }
 
-.top {
+#app .top {
     transition: all .5s linear;
     position: relative;
     z-index: 6;
     position: fixed;
     width: 100%;
+    background-color: $white;
+    box-shadow: 0 0 .5rem rgba(0,0,0,.2);
 
-    .btn {
-        font-weight: $font-weight-bolder;
-        letter-spacing: 2px;
-        font-size: 20px;
+    .logo {
+        color: $dark;
+        justify-content: center;
+        padding: 1rem 0;
+        margin: 0 auto;
+    }
 
-        @media (min-width: 576px) {
-            top: 15px;
+    .contact-nav {
+        display: flex;
+        justify-content: center;
+
+        @media screen and (min-width: 576px){
+            justify-content: flex-end;
+        }
+
+        a {
+            display: inline-block;
+            padding: .3rem .25rem 0;
+            margin: 0 .5rem 0 0;
+            background-color: $primary;
+            font-size: .9rem;
+            color: $white;
+
+            @media screen and (min-width: 768px) {
+                color: $dark;
+                background-color: transparent;
+            }
         }
     }
 
@@ -87,11 +97,12 @@ body {
         height: 100%;
 
         a.nav-link {
-            color: #FFF;
-            padding: 1.5rem .75rem;
+            color: $dark;
+            padding: .25rem .75rem;
 
             &:hover {
-                color: $primary;
+                background-color: rgba(0,0,0,.25);
+                border-radius: .25rem;
             }
         }
         .dropdown-menu {
@@ -125,7 +136,7 @@ ul.navbar-nav {
     li {
         a {
             padding: .5rem;
-            color: #FFF;
+            color: $dark;
             text-transform: uppercase;
             text-decoration: none;
             font-weight: 600;
@@ -138,52 +149,36 @@ ul.navbar-nav {
 .mobile-menu-open,
 .scrolling {
     .top {
-        background-color: #FFF;
-        box-shadow: 0 0 .5rem rgba(0,0,0,.2);
-                
         .topnav {
             list-style: none;
             display: flex;
 
-            li {
-                a.nav-link {
-                    color: #555;
-                    padding: .75rem .75rem;
-                }
-            }
         }
+
+    }
+}
+
+.quick-search {
+    text-align: left;
+    // background-color: rgba(50,50,50,.75);
+
+    select {
+        min-width: 210px;
     }
 }
 
 // Body Content
 main {
     position: relative;
-    background: transparent;
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    
-
-    @media (min-width: 992px){
-        box-shadow: none;
-    }
 
     article {
-        padding: 2rem 1rem 1rem;
+        padding: 2rem 0 1rem;
         text-align: left;
         background-color: #FFF;
 
-        @media (min-width: 576px){
-            text-align: justify;
-        }
-
         header {
+            padding-top: 3rem;
             margin-bottom: 1rem;
-        }
-
-        .fittext span, h1 {
-            color: $primary;
-            text-transform: uppercase;
-            font-weight: $font-weight-bolder;
-            letter-spacing: 2px;
         }
 
         p, ul, ol {
@@ -193,121 +188,61 @@ main {
         h2 {
             margin-top: 3rem;
             margin-bottom: 1rem;
-            color: $secondary;
             font-weight: 400;
             text-transform: capitalize;
-            
-            &::after {
-                content: none;
-                background-color: $secondary;
-            }
         }
     }
 }
 
 // Support Content
 .header-image {
+    background-color: $dark;
     background-size: cover;
     background-position: center;
     min-height: 150px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    overflow: hidden;
 
-    h1, h2 {
-        display: inline-block;
-        padding: .75rem 1rem;
-        border: 1px solid #FFF;
-        height: 60px;
-        margin: 0;
-        line-height: 1em;
-        font-size: 2.3em;
-        text-shadow: 0 0 15px rgba(0,0,0,.4);
-        box-shadow: 0 0 15px rgba(0,0,0,.2);
-        letter-spacing: 1px;
-    }
-
-    &.support {
-        padding: 3rem 1rem;
-        background-color: $dark;
+    .overlay {
         position: relative;
-        overflow: hidden;
-        z-index: 1;
-
-        &::before {
-            content: " ";
-            position: absolute;
-            display: block;
-            background-color: rgba(0,0,0,.5);
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            z-index: 1;
-        }
-        
-        .container {
-            display: flex;
-            height:100%;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
+        height: 100%;
+        width: 100%;
+        z-index: 0;
     }
 }
 
-// Main Slider
-.slider-container {
+.slider-container,
+.main-header-image {
     position: relative;
-    height: 300px;
+    min-height: 300px;
     overflow: hidden;
     z-index: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    @media (min-width: 576px){
-        height: 400px;
+    @media screen and (min-width: 1024px){
+        min-height: 550px;
     }
 
-    @media (min-width: 768px){
-        height: 500px;
+
+    .overlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 1;
+        height:100%;
+        width: 100%;
     }
 
-    @media (min-width: 992px){
-        height: 650px;
-    }
-
-    @media (min-width: 1200px){
-        height: 100vh;
-    }
-}
-
-// Portfolio
-.portfolio-gallery {
-    padding: 2rem 1rem;
-
-    .portfolio-filters {
-        padding: .5rem 0 1.5rem;
-
-        .col-auto {
-            padding: .5rem;
-        }
-    }
-    
-    .project-tile {
-        margin: .5rem 0;
-    }
-
-    .project-button {
-        margin-top: -2rem;
+    .overlay-content {
         position: relative;
-        margin-bottom: 2rem;
-
-        .btn {
-            background-color: #FFF;
-        }
+        z-index: 2;
+        justify-content: center;
+        text-align: center;
     }
 }
-
+ 
 .section-button {
     padding: 0 1rem 3rem;
     @media (min-width: 576px){
@@ -318,14 +253,14 @@ main {
     }
 }
 
-// Testimonial Section
-.testimonial-section {
-    background-image: url('/themes/wordplate/assets/images/pavers.jpg');
-    background-size: cover;
-    background-position: center;
-    background-color: $dark;
-    padding: 1rem 1rem 0;
-    color: #FFF;
+.section-title {
+    padding: 3rem 1rem 1rem;
+    @media (min-width: 576px){
+        padding: 4rem 1rem 0;
+    }
+    @media (min-width: 768px){
+        padding: 5rem 1rem 1rem;
+    }
 }
 
 // Feature Box Section
@@ -336,17 +271,33 @@ main {
 
     .feature-box {
         padding: 2rem;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
 
         @media (min-width: 768px){
             padding: 3rem;
         }
 
-        &.feat-one {
-            background-color: $primary;
+        .box-content {
+            position: relative;
+            z-index: 1;
         }
 
-        &.feat-two {
-            background-color: $secondary;
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+
+            @media (min-width: 768px){
+                top: 2rem;
+                left: 2rem;
+                right: 2rem;
+                bottom: 2rem;
+            }
         }
 
         h2, h3 {
@@ -374,10 +325,10 @@ main {
     .box-container {
         padding: 0;
         @media (min-width: 576px){
-            padding: 1rem 2rem;
+            padding: 1rem ;
         }
         @media (min-width: 768px){
-            padding: 3rem 2rem;
+            padding: 2rem;
         }
     }
 }
@@ -393,25 +344,6 @@ article h2,
         height: 3px;
         background-color: #FFF;
         margin: 5px 0;
-    }
-}
-
-// Team
-.team-grid {
-    padding: 0;
-    
-    .team-member {
-        margin: .5rem 0;
-    }
-
-    .member-button {
-        margin-top: -2rem;
-        position: relative;
-        margin-bottom: 2rem;
-
-        .btn {
-            background-color: #FFF;
-        }
     }
 }
 
@@ -496,8 +428,14 @@ footer {
         }
     }
 
-    .footer-content {
-        padding: 1rem;
+    .contact-form {
+        @media (min-width: 768px){
+            padding: 1rem;
+
+            .form-group {
+                padding-bottom: .75rem;
+            }
+        }
     }
 
     .social-icons {
@@ -512,6 +450,13 @@ footer {
             }
         }
     }
+
+    .broker-logo {
+        img {
+            max-width: 150px;
+        }
+    }
+    
     .copyright {
         color: #FFF;
         font-size: 12px;
@@ -526,5 +471,93 @@ footer {
     .siteby {
         display: inline-block;
         padding: 0 1rem;
+    }
+}
+
+.card-columns {
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+    }
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+    }
+    @include media-breakpoint-only(lg) {
+        column-count: 3;
+    }
+}
+
+.container-wide {
+    padding: 0 30px;
+
+    @media screen and (min-width: 1400px) {
+        width: 100%;
+        max-width: 1920px;
+        padding: 0 60px;
+        margin: 0 auto;
+    }
+}
+
+#app {
+    .listing {
+        height: 100%;
+        box-shadow: 0 0 1rem rgba(0,0,0,.1);
+
+        .status-flag {
+            color: $white;
+            background-color: $secondary;
+            position: absolute;
+            z-index: 4;
+            font-size: .9em;
+            padding: .25rem .5rem;
+            margin-top: .5rem;
+            transform: skew(-8deg);
+            margin-left: -.5rem;
+            box-shadow: 0 0 .5rem rgba(0,0,0,.3);
+        }
+        .main-image {
+            background-size: cover !important;
+            border-bottom: 1px solid #dedede;
+        }
+        .listing-link {
+            left: 0; right: 0; bottom: 0; top: 0;
+            z-index: 5;
+
+            &:hover {
+                border-bottom: .25rem $primary solid;
+            }
+        }
+
+        .mls-number {
+            color: rgba(0,0,0,.4);
+            font-size: .8rem;
+        }
+    }
+
+    .sort-form,
+    .search-bar {
+        select, .btn {
+            box-shadow: 0 0 1rem rgba(0,0,0,.1);
+        }
+    }
+
+    .pager {
+        nav {
+            box-shadow: 0 0 1rem rgba(0,0,0,.1);
+        }
+    }
+
+    .listing-detail {
+        box-shadow: 0 0 1rem rgba(0,0,0,.1);
+        height:100%;
+    }
+
+    .VueCarousel-navigation-button {
+        &.VueCarousel-navigation-prev {
+            padding-right: 0 !important;
+        }
+
+        &.VueCarousel-navigation-next {
+            padding-left: 0 !important;
+        }
     }
 }

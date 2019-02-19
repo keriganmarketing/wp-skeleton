@@ -165,6 +165,7 @@ class Testimonial
             ]
         );
     }
+    
     public function testimonial_init()
     {
         register_post_type('testimonial', array(
@@ -180,7 +181,7 @@ class Testimonial
                 'set_featured_image' => _x('Set featured image', 'testimonial', 'wordplate'),
                 'remove_featured_image' => _x('Remove featured image', 'testimonial', 'wordplate'),
                 'use_featured_image' => _x('Use as featured image', 'testimonial', 'wordplate'),
-                'filter_items_list' => __('Filter Testimonials list', 'wordplate'),
+                'filter_items_list' => __('Filter '.$this->pluralName.' list', 'wordplate'),
                 'items_list_navigation' => __($this->menuName . ' list navigation', 'wordplate'),
                 'items_list' => __($this->menuName . ' list', 'wordplate'),
                 'new_item' => __('New ' . $this->singularName, 'wordplate'),

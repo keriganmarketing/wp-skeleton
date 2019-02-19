@@ -1,6 +1,8 @@
 <?php
+$headerImageData = get_field('header_image',get_option( 'page_for_posts' ));
 
 bladerunner('views.pages.home', [
-    'headerImageData' => get_field('header_image'),
-    'headline'        => get_field('headline')
+    'headerImage' => $headerImageData['url'],
+    'headerOverlay' => get_field('overlay_color',get_option( 'page_for_posts' )),
+    'headline'    => get_field('headline',get_option( 'page_for_posts' ))
 ]);

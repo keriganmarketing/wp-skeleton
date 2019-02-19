@@ -6,6 +6,9 @@ Homestead.json
 Homestead.yaml
 node_modules
 npm-debug.log
+package-lock.json
 Vagrantfile
 ./vendor/
-public/themes/wordplate/assets/mix-manifest.json
+composer-lock.json
+./public/themes/wordplate/assets/mix-manifest.json
+./public/uploads/

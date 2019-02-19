@@ -2,24 +2,35 @@
     <div>
         <form>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <input
                             type="text"
-                            class="form-control bg-dark border-0 text-white"
+                            class="form-control border-0"
                             placeholder="Name"
                             v-model="form.name"
                             required
                         >
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <input
                             type="email"
-                            class="form-control bg-dark border-0 text-white"
-                            placeholder="Email"
+                            class="form-control border-0"
+                            placeholder="Email Address"
                             v-model="form.email"
+                            required
+                        >
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            class="form-control border-0"
+                            placeholder="Phone Number"
+                            v-model="form.phone"
                             required
                         >
                     </div>
@@ -27,7 +38,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <textarea
-                            class="form-control bg-dark border-0 text-white"
+                            class="form-control border-0"
                             placeholder="Message"
                             v-model="form.comments"
                         >
@@ -35,7 +46,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-outline-primary" @click.prevent="formSubmitted">Send Message &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                    <button class="btn btn-default" @click.prevent="formSubmitted">Send Message &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></button>
                 </div>
             </div>
         </form>
@@ -49,6 +60,7 @@ import ContactForm from '../models/contact-form';
                 form: new ContactForm({
                     name: '',
                     email: '',
+                    phone: '',
                     comments: '',
                     url: '/wp-json/kerigansolutions/v1/submit-contact-form'
                 })
